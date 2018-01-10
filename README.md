@@ -38,7 +38,7 @@ dependencies {
             wave:peakValue="15dp"
             wave:speed="10"
             wave:speedDValue="6"
-            wave:waveColor="#66ffffff"
+            wave:waveColor="#660000ff"
             wave:waveHeight="80dp" />
 ```
 
@@ -50,7 +50,7 @@ dependencies {
 | wave:peakValue   | 震幅（控制波浪高度）                               | 30dp            |
 | wave:speed       | 波纹标准速度                                   | 5               |
 | wave:speedDValue | 波纹之间速度差                                  | 2               |
-| wave:waveColor   | 波纹颜色，应设置半透明色，以实现叠层效果                     | 0x881E90FF（蓝色）  |
+| wave:waveColor   | 波纹颜色（应设置半透明色，以实现叠层效果）                    | 0x881E90FF（蓝色）  |
 | wave:waveHeight  | 波纹高度（波纹部分在视图中高度，需要 android:layout_height的配合，理论上讲 android:layout_height的高度应该大于等于wave:waveHeight+wave:peakValue/2才能完整显示波纹，形象的描述：wave:waveHeight变大意味着涨潮了） | 100dp           |
 
 ##### 代码设置
