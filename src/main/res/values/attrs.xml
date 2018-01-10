@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="peakValue" format="dimension"/>
+    <attr name="waveColor" format="color" />
+    <attr name="speed" format="integer" />
+    <attr name="speedDValue" format="integer" />
+    <attr name="number" format="integer" />
+    <attr name="waveHeight" format="dimension" />
+
+    <declare-styleable name="wave">
+        <attr name="peakValue" />
+        <attr name="waveColor" />
+        <attr name="speedDValue" />
+        <attr name="speed" />
+        <attr name="number" />
+        <attr name="waveHeight" />
+
+    </declare-styleable>
+</resources>
