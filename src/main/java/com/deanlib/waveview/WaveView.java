@@ -27,7 +27,7 @@ public class WaveView extends View {
     private static int STRETCH_FACTOR_A;//震幅（控制波浪高度）
     private static int OFFSET_Y = 0;//正弦函数的Y偏移量
 
-    private static int WaveHeight = 0;//波浪高度（Y轴方向）
+    private static int WAVE_HEIGHT = 0;//波浪高度（Y轴方向）
     //    private static  int TRANSLATE_X_SPEED_ONE ;    // 第一条水波的移动速度 单位dp
 //    private static  int TRANSLATE_X_SPEED_TWO ;    // 第二条水波的移动速度 单位dp
 //    private int mXOffsetSpeedOne;//单位 PX
@@ -60,6 +60,13 @@ public class WaveView extends View {
     public WaveView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
+        STRETCH_FACTOR_A = dip2px(context,30);
+        WAVE_PAINT_COLOR =0x881E90FF;
+        SPEED_D_VALUE = 2;
+        SPEED = 5;
+        NUMBER = 1;
+        WAVE_HEIGHT = dip2px(context,100);
+
         //获取自定义属性值
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.wave, defStyle, 0);
         int n = a.getIndexCount();
@@ -83,7 +90,7 @@ public class WaveView extends View {
                 NUMBER = a.getInteger(attr, 1);//默认是1
 
             } else if (attr == R.styleable.wave_waveHeight) {
-                WaveHeight = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
+                WAVE_HEIGHT = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(
                         TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics()));//默认100dp
 
             }
@@ -138,10 +145,10 @@ public class WaveView extends View {
             for (int m = 0; m < mWaves.length; m++) {
 
                 if (i + mWaves[m].xOffset < mTotalWidth) {//波纹图形绘制
-                    canvas.drawLine(i, mTotalHeight - mYPositions[mWaves[m].xOffset + i] - WaveHeight, i, mTotalHeight, mWavePaint);
+                    canvas.drawLine(i, mTotalHeight - mYPositions[mWaves[m].xOffset + i] - WAVE_HEIGHT, i, mTotalHeight, mWavePaint);
                 } else {//大于周期值，则设置为k(与相位相关，已移动的X距离)
 
-                    canvas.drawLine(i, mTotalHeight - mYPositions[yIndex[m]] - WaveHeight, i, mTotalHeight, mWavePaint);
+                    canvas.drawLine(i, mTotalHeight - mYPositions[yIndex[m]] - WAVE_HEIGHT, i, mTotalHeight, mWavePaint);
                     yIndex[m] = yIndex[m]+1;
 
                 }
