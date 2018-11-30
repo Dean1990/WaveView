@@ -23,7 +23,7 @@ allprojects {
 
 ```groovy
 dependencies {
-        compile 'com.github.Dean1990:WaveView:-SNAPSHOT'
+        implementation 'com.github.Dean1990:WaveView:-SNAPSHOT'
 }
 ```
 
